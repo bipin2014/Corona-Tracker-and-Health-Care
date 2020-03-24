@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:stretchColumns="*"
+    android:background="@color/white">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/name"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_column="0"
+            android:gravity="center"
+            android:text="Name"/>
+        <TextView
+            android:id="@+id/confirm"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#30336B"
+            android:layout_column="1"
+            android:gravity="center"
+            android:text="Confirmed"
+            />
+        <TextView
+            android:id="@+id/cChanged"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:textColor="#1287A5"
+            android:layout_column="2"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Confirm(Past 24hrs)"
+            />
+        <TextView
+            android:id="@+id/death"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#AE1438"
+            android:layout_column="3"
+            android:text="Death"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/dChanged"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:textColor="#1287A5"
+            android:layout_column="4"
+            android:layout_height="wrap_content"
+            android:text="Death(Past 24hrs)"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/recovered"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#6ab04c"
+            android:layout_column="5"
+            android:text="Recovered"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/serious"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#F4C724"
+            android:layout_column="6"
+            android:text="Serious"
+            android:gravity="center"
+            />
+
+
+    </TableRow>
+
+</TableLayout>

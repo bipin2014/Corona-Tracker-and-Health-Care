@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ddd"
+    android:orientation="vertical"
+    tools:context=".InfoActivity">
+
+    <TableLayout
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="@color/white">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="0"
+                android:text="Name"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="1"
+                android:text="Confirmed"
+                android:textColor="#30336B"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cChanged"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="2"
+                android:textStyle="bold"
+                android:text="Confirm(Past 24hrs)"
+                android:textColor="#1287A5" />
+
+            <TextView
+                android:id="@+id/death"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="3"
+                android:text="Death"
+                android:textColor="#AE1438"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dChanged"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="4"
+                android:textStyle="bold"
+                android:text="Death(Past 24hrs)"
+                android:textColor="#1287A5" />
+
+            <TextView
+                android:id="@+id/recovered"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="5"
+                android:text="Recovered"
+                android:textColor="#6ab04c"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/serious"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_column="6"
+                android:text="Serious"
+                android:textColor="#F4C724"
+                android:textStyle="bold" />
+
+
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

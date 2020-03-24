@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doctors Suggest to wash your hand and drink water frequently. So if you cannnot remember to wash your hand when you are outside then our app can be helpful to remind you to wash your hand in every 1 hour interval. Tap on the button below to start."
+                    android:textSize="20sp"
+                    android:layout_margin="20dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textStyle="italic"
+
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+                <Button
+                    android:id="@+id/handNotification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="25sp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/control_button"
+                    android:text="Start Getting Notification"
+                    />
+
+                <Button
+                    android:id="@+id/whoInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="25sp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/control_button"
+                    android:text="WHO ABOUT CORONA"
+                    />
+
+
+        </LinearLayout>
+
+
+</ScrollView>

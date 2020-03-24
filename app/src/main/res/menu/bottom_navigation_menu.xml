@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hand"
+        android:icon="@drawable/ic_icon_handwash"
+        android:title="Clean Hand" />
+
+    <item
+        android:id="@+id/info"
+        android:icon="@drawable/ic_live"
+        android:title="Live Info" />
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_info"
+        android:title="About Us" />
+</menu>

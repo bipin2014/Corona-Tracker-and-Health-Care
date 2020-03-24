@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#eee">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:text="This app is developed to help people stay away from corona virus. And provide Some Facts about the corona virus. We collect data from official websites Like WHO and goverment sites only."
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NOTE: This App helps you to stay away from corona virus but doesnot cure corona virus itself."
+            android:gravity="center"
+            android:textColor="#000"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/who"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="WHO Information"
+            android:textSize="18sp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/white"
+            android:padding="10dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:padding="10dp"
+            android:text="Developer: Bipin Budhathoki"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:text="Email:bipinpaypal2014@gmail.com"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Goto Play Star and rate 5 star if you like the app and give feedback how can we improve. Your words will be appreciated."
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:padding="5dp"/>
+
+                <Button
+                    android:id="@+id/rateUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Rate The App"
+                    android:textSize="18sp"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/white"
+                    android:padding="10dp" />
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+
+</ScrollView>
