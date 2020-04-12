@@ -16,7 +16,7 @@ import com.bipin.healthcare.MapActivity;
 import com.bipin.healthcare.R;
 
 public class AboutFragment extends Fragment {
-    Button rateUs,who;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,23 +27,8 @@ public class AboutFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        rateUs=view.findViewById(R.id.rateUs);
-        who=view.findViewById(R.id.who);
 
-        rateUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent rateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+getContext().getPackageName()));
-                startActivity(rateIntent);
-            }
-        });
-        who.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), MapActivity.class);
-                intent.putExtra("Who",true);
-                startActivity(intent);
-            }
-        });
+
+
     }
 }

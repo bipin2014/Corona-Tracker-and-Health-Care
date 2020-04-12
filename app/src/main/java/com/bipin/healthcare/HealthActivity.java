@@ -31,23 +31,7 @@ public class HealthActivity extends AppCompatActivity implements BottomNavigatio
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.top_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.privacyPolicy:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bajirkorean.blogspot.com/p/privacy-policy-bipin-budhathoki-built.html"));
-                startActivity(browserIntent);
-                break;
-        }
-        return true;
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

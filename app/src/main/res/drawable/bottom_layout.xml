@@ -11,15 +11,13 @@
         android:top="10dp" />
 
     <size
-        android:height="100dp"
         android:width="100dp"
-        />
-    <solid
-         android:color="#ffffffff"
-        />
+        android:height="70dp" />
+
+    <solid android:color="#fff" />
 
     <stroke
-        android:color="@color/colorPrimary"
-        android:width="5dp"/>
+        android:width="5dp"
+        android:color="@color/colorPrimary" />
 
 </shape>

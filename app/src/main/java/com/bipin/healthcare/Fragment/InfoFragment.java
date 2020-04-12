@@ -30,9 +30,9 @@ import java.util.regex.Pattern;
 import static android.content.Context.MODE_PRIVATE;
 
 public class InfoFragment extends Fragment {
-    public TextView confirm,countries,death,recovered;
-    SharedPreferences sharedPreferences;
-    Button viewMap,moreDetail;
+    private TextView confirm,death,recovered;
+    private SharedPreferences sharedPreferences;
+    private Button viewMap,moreDetail;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,7 +46,6 @@ public class InfoFragment extends Fragment {
         GetData getData=new GetData();
         getData.execute();
         confirm=view.findViewById(R.id.confirm);
-        countries=view.findViewById(R.id.countries);
         death=view.findViewById(R.id.death);
         recovered=view.findViewById(R.id.recovered);
         viewMap=view.findViewById(R.id.viewMap);
@@ -58,7 +57,6 @@ public class InfoFragment extends Fragment {
         String countriesString=sharedPreferences.getString("Countries","165/195");
 
         confirm.setText(confirmString);
-        countries.setText(countriesString);
         death.setText(deathString);
         recovered.setText(recoveredString);
 
@@ -91,14 +89,14 @@ public class InfoFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            String result="HELLO";
+            String result="";
             try {
                 Document doc = Jsoup.connect("https://ncov2019.live/").get();
 
                 Elements ptags=doc.select("p");
                 result=ptags.text();
                 Log.i("RESULT",result);
-                String[] strArray = result.split("at the same time\\)");
+                String[] strArray = result.split("Quick Facts updated: a few seconds ago");
                 result=strArray[1];
                 Log.i("RES",result);
                 setToArrayList(result.trim());
@@ -120,11 +118,11 @@ public class InfoFragment extends Fragment {
             confirm.setText(confirmString);
             death.setText(deathString);
             recovered.setText(recoveredString);
-            countries.setText(countriesString);
+
 
         }
 
-        public void setToArrayList(String result){
+        private void setToArrayList(String result){
             SharedPreferences.Editor editor = sharedPreferences.edit();
             //Total Case
             Pattern totalconfirmed=Pattern.compile("(.*?) Total Confirmed Cases");
@@ -147,15 +145,6 @@ public class InfoFragment extends Fragment {
             while (m.find()){
                 Log.i("Recovered",m.group(1));
                 editor.putString("Recovered",m.group(1));
-
-            }
-
-            //Total Countries
-            Pattern totalca=Pattern.compile("Total Recovered (.*?) Total Countries Infected");
-            m=totalca.matcher(result);
-            while (m.find()){
-                Log.i("Affected",m.group(1));
-                editor.putString("Countries",m.group(1));
                 editor.apply();
             }
         }

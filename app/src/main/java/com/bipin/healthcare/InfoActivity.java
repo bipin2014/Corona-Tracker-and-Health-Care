@@ -28,8 +28,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class InfoActivity extends AppCompatActivity {
     DatabaseController db;
@@ -116,53 +114,34 @@ public class InfoActivity extends AppCompatActivity {
             try {
                 Document doc = Jsoup.connect("https://ncov2019.live/").get();
 
-                Elements ptags=doc.select("#sortable_table_Global tbody tr");
+                Elements ptags=doc.select("#sortable_table_global tbody tr");
 
-                Boolean inserted=sharedPreferences.getBoolean("Inserted",false);
-                if(!inserted){
                     for (Element e:ptags){
                         Elements es=e.getElementsByTag("td");
-                        insert(es);
-                    }
-                    SharedPreferences.Editor editor=sharedPreferences.edit();
-                    editor.putBoolean("Inserted",true);
-                    editor.apply();
 
-                }else {
-                    for (Element e:ptags) {
-                        Elements es = e.getElementsByTag("td");
-                        update(es);
+                        Model model = new Model();
+                        model.setName(es.get(0).text());
+                        model.setConfirmed(es.get(1).text());
+                        model.setCtodayschange(es.get(2).text() );
+                        model.setDeath(es.get(4).text());
+                        model.setDtodayschange(es.get(5).text() );
+                        model.setRecovered(es.get(7).text());
+                        model.setSerious(es.get(8).text());
+//                        Log.i("MSG",es.get(0).text() +" "+es.get(2).text());
+                        boolean inserted=db.checkName(es.get(0).text());
+                        Log.i("MSG MSG",es.get(0).text() +" "+inserted);
+                        if (inserted){
+                            db.updateData(model);
+                        }else{
+                            db.insertData(model);
+                        }
                     }
-                }
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
             return null;
-        }
-
-        private void insert(Elements es) {
-            Model model = new Model();
-            model.setName(es.get(0).text());
-            model.setConfirmed(es.get(1).text());
-            model.setCtodayschange(es.get(2).text() );
-            model.setDeath(es.get(4).text());
-            model.setDtodayschange(es.get(5).text() );
-            model.setRecovered(es.get(7).text());
-            model.setSerious(es.get(8).text());
-            db.insertData(model);
-        }
-
-        private void update(Elements es) {
-            Model model = new Model();
-            model.setName(es.get(0).text());
-            model.setConfirmed(es.get(1).text());
-            model.setCtodayschange(es.get(2).text() );
-            model.setDeath(es.get(4).text());
-            model.setDtodayschange(es.get(5).text() );
-            model.setRecovered(es.get(7).text());
-            model.setSerious(es.get(8).text());
-
-            db.updateData(model);
         }
 
         @Override
@@ -183,8 +162,7 @@ public class InfoActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.action_reload:
-                dataArrayList = db.getAllData();
-                setRecycleAdapter();
+                new GetData().execute();
 
         }
         return super.onOptionsItemSelected(item);

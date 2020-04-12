@@ -59,7 +59,6 @@ public class DatabaseController extends SQLiteOpenHelper {
         contentValues.put(KEY_RECOVERED, model.getRecovered());
         contentValues.put(KEY_SERIOUS, model.getSerious());
         db.insert(TABLE_NAME, null, contentValues);
-        db.close();
     }
 
     public void updateData (Model model) {
@@ -72,7 +71,8 @@ public class DatabaseController extends SQLiteOpenHelper {
         contentValues.put(KEY_DCHANGED, model.getDtodayschange());
         contentValues.put(KEY_RECOVERED, model.getRecovered());
         contentValues.put(KEY_SERIOUS, model.getSerious());
-        db.update(TABLE_NAME, contentValues, KEY_NAME+"='"+model.getName()+"'",null);
+        int i=db.update(TABLE_NAME, contentValues, KEY_NAME+"='"+model.getName()+"'",null);
+        Log.i("UPDATE", String.valueOf(i));
         db.close();
     }
 
@@ -99,6 +99,7 @@ public class DatabaseController extends SQLiteOpenHelper {
                 modelArrayList.add(model);
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
         // return contact list
         return modelArrayList;
@@ -129,7 +130,22 @@ public class DatabaseController extends SQLiteOpenHelper {
 
             } while (cursor.moveToNext());
         }
+        cursor.close();
         // return data list
         return dataArrayList;
+    }
+
+    public boolean checkName(String name) {
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME+ " WHERE "+KEY_NAME+" = '"+name+"'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            return true;
+        }
+        cursor.close();
+        return false;
     }
 }
